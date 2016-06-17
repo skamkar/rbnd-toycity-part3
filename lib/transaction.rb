@@ -19,6 +19,10 @@ class Transaction
     @@transactions.find{|transaction| transaction.id == id}
   end
 
+  def self.find_by_customer_name(name)
+    @@transactions.find_all{|transaction| transaction.customer.name == name}
+  end
+
   private
 
   def add_to_transactions

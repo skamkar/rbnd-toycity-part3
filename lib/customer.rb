@@ -1,5 +1,3 @@
-require 'byebug'
-
 class Customer
   
   attr_reader :name

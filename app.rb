@@ -80,5 +80,11 @@ walter.print_details
 #  Nano Block Empire State Building
 #  LEGO Iron Man vs. Ultron
 
+# FIND TRANSACTIONS BY CUSTOMER NAME
+julia = Customer.find_by_name("Julia Van Cleve")
+julia.purchase(ironman)
+julia.purchase(nanoblock)
+jtransactions = Transaction.find_by_customer_name("Julia Van Cleve")
+puts jtransactions.count # Should return 2
 
 

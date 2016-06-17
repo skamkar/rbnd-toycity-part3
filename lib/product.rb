@@ -1,5 +1,3 @@
-require 'byebug'
-
 class Product
   attr_reader :title, :price
   attr_accessor :stock
