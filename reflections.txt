@@ -1,0 +1,21 @@
+Create a file called reflections.txt in the top level directory of your project. There, you should answer the following questions:
+
+How long did you spend working on this project?
+
+2 ~ 3 hours
+
+What was the most rewarding challenge you conquered?
+
+Figuring out that the transactions class required product and customer objects. No doi, in hindsight.
+
+What two additional features did you build? Why?
+
+1! Print customer details (see example on app.rb:73); thought it was beneficial to have a snapshot view of all products purchased (product titles) in a human readable format.
+
+2! Lookup transactions by customer name (see exmaple on app.rb:87); store keepers don't speak interms of hashed objects, they use names to query information so this feature was added as well.
+
+Where do you still have room to grow?
+
+1) Speed - specifically noting the obvious requirement that transaction needed objects, not strings, or other simple data types.
+
+2) Error handling.
