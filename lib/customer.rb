@@ -19,13 +19,14 @@ class Customer
     @@customers[@@customers.find_index{ |customer| customer.name == name }]
   end
 
-  # def in_stock?
-  #   @stock > 0 ? true : false 
-  # end
-
-  # def self.in_stock
-  #   @@products.select{ |product| product.stock > 0}
-  # end
+  def purchase(product)
+    if product.in_stock?
+      Transaction.new(@name,product)
+      product.increment_stock(-1)
+    else
+      raise OutOfStockError, "#{product.title} is out of stock."
+    end
+  end
 
   private
 

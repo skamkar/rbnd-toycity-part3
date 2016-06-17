@@ -11,6 +11,14 @@ class Transaction
     add_to_transactions
 	end
 
+  def self.all
+    @@transactions
+  end
+
+  def self.find(id)
+    @@transactions.find{|transaction| transaction.id == id}
+  end
+
   private
 
   def add_to_transactions

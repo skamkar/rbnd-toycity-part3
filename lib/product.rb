@@ -1,7 +1,8 @@
 require 'byebug'
 
 class Product
-  attr_reader :title, :price, :stock
+  attr_reader :title, :price
+  attr_accessor :stock
 
 
   @@products = []
@@ -23,6 +24,10 @@ class Product
 
   def in_stock?
     @stock > 0 ? true : false 
+  end
+
+  def increment_stock(count)
+    @stock = @stock + count
   end
 
   def self.in_stock
