@@ -37,7 +37,6 @@ puts Customer.all.count # Should return 2
 
 # Customer.new(name: "Walter Latimer")
 # Should return DuplicateCustomerError: 'Walter Latimer' already exists.
-
 walter = Customer.find_by_name("Walter Latimer")
 
 puts walter.name # Should return "Walter Latimer"
@@ -61,5 +60,25 @@ puts Transaction.all.count # Should return 2
 transaction2 = Transaction.find(2)
 puts transaction2.product == nanoblock # Should return true
 
-walter.purchase(firehouse)
+# walter.purchase(firehouse)
 # Should return OutOfStockError: 'LEGO Firehouse Headquarter' is out of stock.
+
+# 
+#  ADDED FUNCTIONALITY
+# 
+
+# PRINT CUSTOMER DETAILS
+ironman = Product.find_by_title("LEGO Iron Man vs. Ultron")
+walter.purchase(ironman)
+walter.print_details
+# Should print...
+# 
+# Customer:
+#  Walter Latimer
+# Purchased Products:
+#  Nano Block Empire State Building
+#  Nano Block Empire State Building
+#  LEGO Iron Man vs. Ultron
+
+
+

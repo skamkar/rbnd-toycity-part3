@@ -5,8 +5,8 @@ class Transaction
   @@transactions = []
 
 	def initialize(customer, product)
-		@customer = customer
-		@product = product
+    @customer = customer
+    @product = product
     @id = @@transactions.count + 1
     add_to_transactions
 	end
@@ -22,7 +22,11 @@ class Transaction
   private
 
   def add_to_transactions
-    @@transactions << self
+    if @product.in_stock?
+      @@transactions << self
+      product.increment_stock(-1)
+    else
+      raise OutOfStockError, "#{product.title} is out of stock."
+    end
   end
-
 end

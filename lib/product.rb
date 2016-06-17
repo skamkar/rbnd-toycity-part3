@@ -31,7 +31,7 @@ class Product
   end
 
   def self.in_stock
-    @@products.select{ |product| product.stock > 0}
+    @@products.select{ |product| product.in_stock? }
   end
 
   private

@@ -20,12 +20,15 @@ class Customer
   end
 
   def purchase(product)
-    if product.in_stock?
-      Transaction.new(@name,product)
-      product.increment_stock(-1)
-    else
-      raise OutOfStockError, "#{product.title} is out of stock."
-    end
+    Transaction.new(self,product)
+  end
+
+  def print_details
+    transactions = Transaction.all.find_all{ |transaction| transaction.customer.name == @name } 
+    puts "\nCustomer: \n #{@name}"
+    puts "Purchased Products: "
+    transactions.each { |transaction| puts " #{transaction.product.title}" }
+    puts ""  
   end
 
   private
